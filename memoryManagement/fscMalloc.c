@@ -103,7 +103,8 @@ void* fscMalloc(memoryStructure* m, size_t requestedSizeInBytes) {
                     m->head = current->next;
                 }
             }
-
+            // Return a pointer to the allocated memory space, just after the header.
+            // Casting to (void*) makes it a general-purpose pointer, usable for any data type.
             return (void*)(header + 1); // Return a pointer to the memory after the header
         }
 
